@@ -3,12 +3,12 @@
 const express = require("express");
 const request = require("request");
 
-const router = express.Router();
+const fetchRouter = express.Router();
 // var headline = require("../models/Headline.js");
 // var note = require("../models/Note.js");
 const db = require("./models");
 
-router.get("/all", function(req, res) {
+fetchRouter.get("/all", function(req, res) {
     db.Headline.find({})
     .then(function(dbArticle) {
         res.json(dbArticle);
@@ -17,4 +17,6 @@ router.get("/all", function(req, res) {
         res.json(err);
     });
 });
+
+module.exports = fetchRouter;
 
