@@ -1,11 +1,11 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
 // This is mongoose's "Schema" constructor
 // Needed for making a schema.
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 // Create a new schema
-var HeadlineSchema = new Schema({
+const HeadlineSchema = new Schema({
 
     // Article Title
     title: {
@@ -30,7 +30,7 @@ var HeadlineSchema = new Schema({
 });
 
 // Creates our model from the above schema by using mongoose
-var Headline = mongoose.model("Headline", HeadlineSchema);
+const Headline = mongoose.model("Headline", HeadlineSchema);
 
 // Exports the Headline model
 module.exports = Headline;
