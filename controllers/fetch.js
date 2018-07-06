@@ -1,12 +1,12 @@
 // This controller is in charge of fetching all articles.
 
-var express = require("express");
-var request = require("request");
+const express = require("express");
+const request = require("request");
 
-var router = express.Router();
+const router = express.Router();
 // var headline = require("../models/Headline.js");
 // var note = require("../models/Note.js");
-var db = require("./models");
+const db = require("./models");
 
 router.get("/all", function(req, res) {
     db.Headline.find({})
