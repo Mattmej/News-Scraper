@@ -10,7 +10,7 @@ const db = require("./models");
 
 headlineRouter.get("/articles/:id", function(req, res) {
     db.Headline.findOne({_id: req.params.id})
-    .populate("note");
+    .populate("note")
     .then(function(dbArticle) {
         res.json(dbArticle);
     })
