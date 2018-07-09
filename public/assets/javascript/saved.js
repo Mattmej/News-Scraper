@@ -155,29 +155,19 @@ $(document).ready(function() {
                 noteText: newNote
             };
             $.post("/api/notes", noteData).then(function() {
-
-            })
+                window.location.href = "/";
+            });
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    function deleteNote() {
+        var noteToDelete = $(this).data("_id");
+        $.ajax({
+            url: `/api/notes/${noteToDelete}`,
+            method: "DELETE"
+        })
+        .then(function() {
+            window.location.href = "/";
+        });
+    }
 });
