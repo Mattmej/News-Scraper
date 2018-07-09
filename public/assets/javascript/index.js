@@ -95,6 +95,13 @@ $(document).ready(function() {
         });
     }
 
+    function scrapeArticles() {
+        $.get("/api/fetch")
+        .then(function(data) {
+            loadPage();
+        })
+    }
+
 
 
 
