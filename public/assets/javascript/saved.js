@@ -5,7 +5,7 @@ $(document).ready(function() {
     $(".btn-deleteArticle").on("click", deleteArticle);
     $(".btn-displayNotes").on("click", displayArticleNotes);
     $(".btn-saveNote").on("click", saveNote);
-    $("btn-deleteNote").on("click", deleteNote);
+    $(".btn-deleteNote").on("click", deleteNote);
 
     // ensures the page loads with all the saved info
     loadPage();
@@ -125,8 +125,39 @@ $(document).ready(function() {
 
         $.get(`/api/notes/${currentArticle._id}`)
         .then(function(data) {
-            var 
-        })
+            var modalBody = `
+                <div class = "container-fluid text-center>
+                    <h4>Article Notes: ${currentArticle._id}</h4>
+                    <hr>
+                    <ul class = "list-group note-container"></ul>
+                    <textarea placeholder = "New Note" rows = "4" cols = "60"></textarea>
+                    <button class = "btn btn-success btn-saveNote" data-toggle="modal" data-target="#noteModal">Display Note</button>
+                </div>`;
+            $(".modal-body").append(modalBody);
+            
+
+            var noteData = {
+                _id: currentArticle._id,
+                notes: data || []
+            };
+
+            $(".btn-saveNote").data("article", noteData);
+            renderNotes(noteData);
+        });
+    }
+
+    function saveNote() {
+        var noteData;
+        var newNote = $("textarea").val().trim();
+        if (newNote) {
+            noteData = {
+                _id: $(this).data("article")._id,
+                noteText: newNote
+            };
+            $.post("/api/notes", noteData).then(function() {
+
+            })
+        }
     }
 
 
