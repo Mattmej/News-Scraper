@@ -1,16 +1,11 @@
-// In charge of front-end, non-api routes.
+// var router = require("express").Router();
+var express = require("express");
+var router = express.Router();
 
-const express = require("express");
-const router = express.Router();
+var apiRoutes = require("./api");
+var viewRoutes = require("./view");
 
-// root path
-router.get("/", function(req, res) {
-    res.render("home");
-});
-
-// Path: /saved
-router.get("/saved", function(req, res) {
-    res.render("saved");
-});
+router.use("/api", apiRoutes);
+router.use("/", viewRoutes);
 
 module.exports = router;

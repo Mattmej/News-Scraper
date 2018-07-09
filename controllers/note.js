@@ -5,7 +5,7 @@
 // const request = require("request");
 
 // const noteRouter = express.Router();
-const db = require("./models");
+const db = require("../models");
 
 module.exports = {
     findOneNote: function(req, res) {

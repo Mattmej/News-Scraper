@@ -6,7 +6,7 @@
 
 // const headlineRouter = express.Router();
 
-const db = require("./models");
+const db = require("../models");
 
 module.exports = {
 
