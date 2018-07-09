@@ -33,7 +33,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
 
-require("./routes")(app);
+app.use(bodyParser.json());
+
+var routes = require("./routes");
+// require("./routes")(app);
+app.use(routes);
 
 // Connect to the Mongo DB
 // mongoose.connect("mongodb://localhost:27017/week18Populater");

@@ -14,7 +14,7 @@ $(document).ready(function() {
 
         // Gets info from the headlines api
         // Data is the headlines that have NOT been saved.
-        $.get("/api/.headlines?saved=false")
+        $.get("/api/headlines?saved=false")
         .then(function(data) {
             
             // If the data exists and has a length (not null or length = 0), then...
@@ -99,7 +99,7 @@ $(document).ready(function() {
         $.get("/api/fetch")
         .then(function(data) {
             loadPage();
-        })
+        });
     }
 
 });
